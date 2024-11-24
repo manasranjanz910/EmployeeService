@@ -24,6 +24,10 @@ public class EmployeeController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public EmployeeResponse getEmployeeById(@RequestParam long id) {
+        if(id <= 0)
+        {
+            throw new IllegalArgumentException("Invalid employee ID");
+        }
         return employeeService.getEmployeeById(id);
     }
     @GetMapping("/all")
@@ -42,6 +46,9 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     public String updateEmployee(@RequestParam long id, @RequestBody EmployeeRequest employeeRequest)
     {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Invalid employee ID");
+        }
         return employeeService.updateEmployee(id, employeeRequest);
     }
     @GetMapping("/salary")
@@ -54,6 +61,9 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     public String deleteEmployee(@RequestParam long id)
     {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Invalid employee ID");
+        }
         return employeeService.deleteEmployee(id);
     }
 }
