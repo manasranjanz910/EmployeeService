@@ -15,5 +15,6 @@ public interface EmployeeServiceImpl {
     public String updateEmployee(long id, EmployeeRequest employeeRequest);
     public List<EmployeeResponse> getEmployeesWithSalaryBetween(double minSalary, double maxSalary) ;
     public String deleteEmployee(long id);
+    public String deleteAllEmployees();
 
 }

@@ -119,4 +119,10 @@ public class EmployeeService  implements EmployeeServiceImpl {
         employeeRepository.deleteById(id);
         return "Employee Deleted";
     }
+
+    @Override
+    public String deleteAllEmployees() {
+        employeeRepository.deleteAll();
+        return "All Employees Deleted";
+    }
 }

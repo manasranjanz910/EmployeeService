@@ -204,6 +204,15 @@ public class EmployeeServiceTest {
 
         assertThrows(IllegalArgumentException.class, () -> employeeService.deleteEmployee(invalidId));
     }
+    @Test
+    void testDeleteAllEmployees_Success() {
+        doNothing().when(employeeRepository).deleteAll();
+
+        String result = employeeService.deleteAllEmployees();
+        assertEquals("All Employees Deleted", result);
+
+        verify(employeeRepository).deleteAll();
+    }
 }
 
 

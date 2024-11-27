@@ -66,4 +66,10 @@ public class EmployeeController {
         }
         return employeeService.deleteEmployee(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteAllEmployees()
+    {
+        return employeeService.deleteAllEmployees();
+    }
 }
